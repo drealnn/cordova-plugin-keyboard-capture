@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+        id="ssg-keyboard-capture" version="0.1.0">
+    <name>Keyboard Capture Plugin</name>
+    <description>Cordova plugin for registering key events on Android devices. Uses modified webview implementation for capturing key events on later Android releases.</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,keyboard,plugin,hardware,key,android</keywords>
+    
+    <platform name="android">
+        <config-file target="config.xml" parent="/*">
+            <preference name="webView" value="com.ssg.cordova.CustomCordovaWebviewEngine"/>
+			<feature name="Keyboard">
+                <param name="android-package" value="com.ssg.cordova.Keyboard"/>
+            </feature>
+        </config-file>
+
+        <js-module src="www/android/keyboard.js" name="SSG-Keyboard">
+            <clobbers target="keyboardCapture" />
+        </js-module>
+
+        <source-file src="src/android/Keyboard.java" target-dir="src/com/ssg/cordova" />
+		<source-file src="src/android/CustomCordovaWebviewEngine.java" target-dir="src/com/ssg/cordova" />
+		<source-file src="src/android/CustomCordovaSystemWebView.java" target-dir="src/com/ssg/cordova" />
+    </platform>
+
+</plugin>
+
