@@ -61,7 +61,7 @@ public class Keyboard extends CordovaPlugin {
 			@Override
 			public boolean onKey(View view, int keyCode, KeyEvent event){
 				//boolean val = super.onKey(view, keyCode, event);
-				Log.e(TAG, ""+keyCode);
+				//Log.e(TAG, ""+keyCode);
 				return doKey(view, keyCode, event);
 			}
 		};
@@ -81,7 +81,7 @@ public class Keyboard extends CordovaPlugin {
 
     public boolean doKey(View v, int keyCode, KeyEvent event) {
 
-        Log.i(TAG, "triggering key event");
+        //Log.i(TAG, "triggering key event");
         if (event.getAction() == KeyEvent.ACTION_UP) {
             return KeyUp(keyCode, event);
         }
@@ -99,7 +99,7 @@ public class Keyboard extends CordovaPlugin {
         //result.setKeepCallback(true);
         //keydown_callback.sendPluginResult(result);
 
-        Log.e(TAG, "Key down in native");
+        //Log.e(TAG, "Key down in native");
         if (this.keydown_callback == null)
             return false;
 
